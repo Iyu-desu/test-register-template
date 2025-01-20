@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{values.application_name | dump}}
+  description: ${{values.description | dump}}
+  annotations:
+    gitlab.com/project-slug: "${{values.repo_namespace + "/" + values.application_name}}"
+  tags:
+    - test
+spec:
+  type: service
+  lifecycle: experimental
+  owner: ${{values.owner | dump}}
